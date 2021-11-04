@@ -1,6 +1,6 @@
-#problem 1:
-#If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
-#Find the sum of all the multiples of 3 or 5 below 1000.
+# problem 1:
+# If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+# Find the sum of all the multiples of 3 or 5 below 1000.
 
 # TODO: 1. scale for non-primes
 #       2. len(seeds) > 2
@@ -11,15 +11,17 @@ MULTIPLE_MAX = 1000
 
 SEEDS = [3, 5]
 
+
 def sol():
 
     # Get bound for sum
     def sum_bound(n):
         bound = floor((MULTIPLE_MAX - 1) / n)
         return bound
+
     # closed sum form for for first n numbers
     def sum_n(n):
-        return ((n) * (n+1)) / 2
+        return ((n) * (n + 1)) / 2
 
     total = 0
     common_multiple = 1
@@ -41,7 +43,4 @@ def sol():
     print(sol)
 
 
-
 sol()
-
-
