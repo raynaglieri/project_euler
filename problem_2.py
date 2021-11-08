@@ -12,7 +12,6 @@
 # How can we leverage this?
 # f(n) = f(n-1) + f(n-2)
 # So then then from an even indexed value the sol is n + F(n-3)
-# or from an even index, the solution would be : EF(2k) = EF(2k-1) + EF(2k-2)
 # Without knowing what nth fibonacci number is bounded above by four million
 # we need to calculate each fibonacci bounded by an even n until we reach four million
 
@@ -47,7 +46,6 @@ def sol():
 
          result = fib(even_fib)
          even_fib_sum += result
-         print( f'{even_fib} is {result}')
          even_fib += 3
       
       # Check for overflow
