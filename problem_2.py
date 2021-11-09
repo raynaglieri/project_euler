@@ -17,6 +17,9 @@ from functools import lru_cache
 
 FIB_VAL_MAX = 4000000
 
+fib_seed_a = 1
+fib_seed_b = 1
+
 
 def sol():
 
@@ -29,7 +32,45 @@ def sol():
 
         return fib(n - 1) + fib(n - 2)
 
-    def get_even_fib_sum():
+    #iterative Fibonacci
+    def fib_iter():
+        a = 1
+        prev = 1
+        result = 0
+
+        while result < FIB_VAL_MAX:
+
+            result = a + prev
+            a = prev
+            prev = result
+
+    # Perform three fib calls to track even sum
+    #iterative Fibonacci counting evens only
+    def fib_even_iter():
+
+        # Seed sequence
+        result_1 = 1  # n - 1
+        result_2 = 1  # n -1
+        result_3 = result_1 + result_2  # n
+        even_sum = 0
+
+        while result_3 < FIB_VAL_MAX:
+
+            # pick up even sum
+            even_sum = even_sum + result_3
+
+            #n -2 = (n-3) + (n-4)
+            result_1 = result_2 + result_3
+
+            # n - 1 = (n-2) + (n-3)
+            result_2 = result_1 + result_3
+
+            # n = (n -1) - (n-2)
+            result_3 = result_2 + result_1
+
+        return even_sum
+
+    def get_even_fib_sum_naive():
 
         even_fib_sum = 0
 
@@ -50,7 +91,7 @@ def sol():
 
         return even_fib_sum
 
-    return get_even_fib_sum()
+    return fib_even_iter()
 
 
 print(sol())
